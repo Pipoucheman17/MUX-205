@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b181e209a32d4a46b4dc7805b1c7bd0, type: 3}
+  m_Name: shotBotData
+  m_EditorClassIdentifier: 
+  movementVelocity: 2
+  jumpVelocity: 12
+  amountOfJump: 1
+  wallJumpVelocity: 20
+  wallJumpTime: 0.4
+  wallJumpAngle: {x: 1, y: 2}
+  coyoteTime: 0.2
+  variableJumpHeightMultiplier: 0.5
+  wallSlideVelocity: 3
+  dashVelocity: 8
+  dashDuration: 1
+  distanceBetweenImages: 1
+  attackDelay: 1
+  aimingDelay: 1
+  loadingDelay: 7
+  hitVelocity: 0.5
+  hitTime: 1
+  playList:
+  - {fileID: 8300000, guid: 4ecddf2a203fdc9469c3c413058a5129, type: 3}
+  - {fileID: 8300000, guid: 8c29d3ea199d81f4ea99918bf48e3b1d, type: 3}
