@@ -2,7 +2,7 @@
 
 Jeu de plateforme 2D inspiré de la serie de jeux Megaman Zero (GBA)
 
-Présentation du projet :  ce projet de jeu à pour but de recréer le moteur de jeu de Megaman Zero avec Unity. Une partie de ce projet est inspiré de vidéo trouver sur internet pour le fonctionnement de base des machines à état présente dans le jeux avec des améliorations et des modifications.
+Présentation du projet : ce projet de jeu à pour but de recréer le moteur de jeu de Megaman Zero avec Unity. Une partie de ce projet est inspiré de vidéo trouver sur internet pour le fonctionnement de base des machines à état présente dans le jeux avec des améliorations et des modifications.
 
 Ce jeu se base sur l'utilisation de machines à états qui retire l'intelligence des transitions d'états des machines d'animation standard de Unity. Concrètement on retire au composant Animator l'arborescence de lien entre les états, qui ne foncionne plus qu'avec des booléen en paramètre de l'animator pour l'activation des animations. 
 
