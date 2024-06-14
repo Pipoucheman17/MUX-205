@@ -16,7 +16,7 @@ public class Movement : CoreComponent
     protected override void Awake()
     {
         base.Awake();
-        RB = GetComponentIn Parent<Rigidbody2D>();
+        RB = GetComponentInParent<Rigidbody2D>();
         FacingDirection = 1;
     }
     public void LogicUpdate()
