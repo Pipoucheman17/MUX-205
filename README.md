@@ -22,7 +22,7 @@ Les états appelle les différents composant présent dans le personnage pour lu
 
 Le composant Core rassemble les fonctions de base (Deplacement, detections de collision etc...) et est utilisable aussi bien pour gérer le personnage jouable que les ennemies. 
 
- - Cf Image du schéma simplifié du fonctionnement du joueur. 
+ - Cf Image du schéma simplifié du fonctionnement du joueur. (Player.drawio.png) 
 ## State Machine
 
 Cette partie sert à présenter le noyaux de fonctionnement du joueur.
