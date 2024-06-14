@@ -4,7 +4,7 @@ Jeu de plateforme 2D inspiré de la serie de jeux Megaman Zero (GBA)
 
 Présentation du projet :  ce projet de jeu à pour but de recréer le moteur de jeu de Megaman Zero avec Unity. Une partie de ce projet est inspiré de vidéo trouver sur internet pour le fonctionnement de base des machines à état présente dans le jeux avec des améliorations et des modifications.
 
-Ce jeux se base sur l'utilisation de machines à état qui supprime l'utilisation des machines d'animation standard de Unity. Concrètement on retire au composant Animator l'arborescence de lien entre les états, qui ne foncionne plus qu'avec des booléen pour l'activation des animations. 
+Ce jeu se base sur l'utilisation de machines à états qui retire l'intelligence des transitions d'états des machines d'animation standard de Unity. Concrètement on retire au composant Animator l'arborescence de lien entre les états, qui ne foncionne plus qu'avec des booléen en paramètre de l'animator pour l'activation des animations. 
 
 Pour la gestion des Inputs, il faut installer l'Inputs System Package de Unity.
 
@@ -18,15 +18,14 @@ Une classe de gestion principal (Player ou Enemy) appelle les différents compos
 
 La machine à état est instantié et utiliser par le script porter par l'objet et sert à appeler les différents état que peux avoir le personnage. Les état determine la réaction à l'environnement mais aussi l'animation en cours. 
 
-Les états appelle les différents composant présent dans le personnage pour lui faire adopter le bon comportement au bon état. Pour cela les états appelle le composant Core placer dans un objet enfant du personnage.
+Les états appellent les différents composant présent dans le personnage pour lui faire adopter le bon comportement au bon état. Pour cela les états appellent le composant Core présent dans un objet enfant du personnage.
 
-Le composant Core rassemble les fonctions de base (Deplacement, detections de collision etc...) et est utilisable aussi bien pour gérer le personnage jouable que les ennemies. 
+Le composant Core rassemble les fonctions de bases (Deplacement, detections de collision etc...) et est utilisable aussi bien pour gérer le personnage jouable que les ennemies. 
 
  - Cf Image du schéma simplifié du fonctionnement du joueur. (Player.drawio.png) 
 ## State Machine
 
-Cette partie sert à présenter le noyaux de fonctionnement du joueur.
-Scripts de machine à état pour le joueur et pour les ennemies
+Cette partie sert à présenter le noyau de fonctionnement du joueur.
 
 ```
 using System.Collections;
@@ -53,7 +52,7 @@ public class PlayerStateMachine
 }
 ```
 
-Class State du player dont tous les états hérite
+Class State du player dont tous les états hérite qui sert d'objet de base pour décrire l'état dans lequel se trouve le personnage
 
 ```
 public class PlayerState
@@ -120,7 +119,7 @@ public class PlayerState
 ```
 
 
-Class player qui sert à orchestrer et réunir tous les objets à faire fonctionner ensemble.
+Class player se sert de la machine à état et des différents composant qui lui sont disponible.
 
 ```
 using System.Collections;
@@ -258,11 +257,24 @@ public class Player : MonoBehaviour
 
 Ce projet comporte aussi des scripts concernant la gestion du jeu en général avec un menu principale et d'autre fonctionnalité (gestion de la musique, passage vers les crédits à la fin du niveau, arrière plan mouvant).
 
+
+### Données des objets
+
+Les ennemies et le joueur sont composé de DATA qui permette de renseigner des valeurs et des objets fixes auxquels ils font références pour décrire(vitesse de mouvement, force du saut, son...).
+Ce système de donnée permet de rendre le changement de ces valeurs plus simple et moins fastidieux qu'avec l'utilisation des [SerializedField] et des champs entrées en dur dans le code.
+
+### Gestion du Son
+
+Un audio manager est présent dans le niveau pour jouer la musique de fond du niveau. 
+
+Les objets susceptible d'émettre du son sont muni d'un composant "AudioSource" qui permet de jouer des sons. 
+Les ennemies et le joueur sont composé de DATA qui permette de renseigné des valeurs et des objets auxquels ils font références(vitesse de mouvement, force du saut, son...).
+
 ## Améliorations futures
 
-Ce projet ne s'arrêtera pas la !
+**Ce projet ne s'arrêtera pas la !**
 
-En effet je compte bien continuer à développer ce jeu pour parfaire ma maîtrise technique de Unity. 
+En effet je compte bien continuer le développement de ce jeu pour parfaire ma maîtrise technique de Unity. 
 
 Une petite liste des idées d'amélioration que j'ai en tête :
 
@@ -275,3 +287,4 @@ Une petite liste des idées d'amélioration que j'ai en tête :
 - Amélioration graphique du Tiling des niveaux 
 - Amélioration du comportement des ennemies 
 - Amélioration du sound Design
+- Un système de sauvegarde
