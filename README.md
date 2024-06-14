@@ -288,3 +288,9 @@ Une petite liste des idées d'amélioration que j'ai en tête :
 - Amélioration du comportement des ennemies 
 - Amélioration du sound Design
 - Un système de sauvegarde
+
+
+## Sources
+Source du principe de fonctionement de la machine à état  
+[BARDENT](https://www.youtube.com/@Bardent)
+
